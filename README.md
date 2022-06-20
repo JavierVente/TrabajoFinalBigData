@@ -56,3 +56,39 @@ También un poco más abajo encontramos un gráfico circular hecho con la librer
 
 ##### Exportación del DataFrame resultante a archivo en formato .csv
 Finalmente se encuentra el bloque encargado de la exportación en un archivo del tipo .csv del DataFrame que había estado almacenando los datos de cada tweet en su etapa de análisis. Este archivo constituye además el entregable exigido del Componente #2 del trabajo práctico. El nombre de este archivo es "tweets_scrapeados_analizados.csv"
+
+
+## **Diccionario de datos**
+
+### **CSV resultante de scraping de Twitter**
+
+#### *Texto del Tweet*
+Contenido en formato String del Tweet (Status) scrapeado.
+#### *Autor*
+Nombre de usuario de la persona quien realizó o bien el tweet original, o el retweet de este.
+#### *Fecha de Tweet*
+Timestamp esxtraído de cada Tweet que indica la fecha y hora de su publicación.
+#### *Favoritos*
+Valor en formato entero que representa la cantidad de usuarios que marcaron a cada Tweet con un símbolo de "Favorito" o "Me gusta"
+#### *Retweets*
+Valor en formato entero que representa la cantidad de usuarios que realizaron un Retweet del Tweet correspondiente a cada observación.
+### 
+
+### **CSV resultante del análisis del .csv resultante del Componente #1**
+
+#### *Texto del Tweet*
+Contenido en formato String del Tweet (Status) scrapeado.
+#### *Autor*
+Nombre de usuario de la persona quien realizó o bien el tweet original, o el retweet de este.
+#### *Fecha de Tweet*
+Timestamp esxtraído de cada Tweet que indica la fecha y hora de su publicación.
+#### *Favoritos*
+Valor en formato entero que representa la cantidad de usuarios que marcaron a cada Tweet con un símbolo de "Favorito" o "Me gusta".
+#### *Retweets*
+Valor en formato entero que representa la cantidad de usuarios que realizaron un Retweet del Tweet correspondiente a cada observación.
+#### *Texto limpiado*
+Valor de cadena proveniente del proceso de limpiado de texto realizado sobre el valor del campo "*Texto del Tweet*".
+#### *POS tagged*
+Lista encargada del almacenamiento del resultado de *Tokenizar* el valor del campo "*Texto limpiado*", es decir, almacena las palabras del Tweet por separado e indicando el tipo (Verbo, Sustantivo, Adjetivo).
+#### *SWM Analysis*
+Valor de cadena proveniente del proceso de análisis de sentimientos con la herramienta SentiWordNet sobre el valor del campo "*POS tagged*". 
