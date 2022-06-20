@@ -32,3 +32,27 @@ Aquí simplemente se exporta el dataframe que contiene a las observaciones con s
 Con eso concluye la sección correspondiente al Componente #1 del trabajo práctico. Para observar el archivo .csv resultante de la búsqueda se puede ejecutar el código o bien ir al archivo "tweets_scrapeados_original.csv"
 
 #### **Componente #2**
+
+##### Lectura del .csv de entrada (Resultado Componente 1)
+Así como lo indican las intrucciones del trabajo, el componente 2 inicia con la importación del archivo .csv resultante del scrapeado del Componente 1. De eso se encarga este bloque de código, el cual lee el archivo del entorno local y lo convierte al tipo DataFrame con la función read_csv() de la librería Pandas.
+
+##### Limpieza de datos
+A través de 3 bloques de código, esta sección se encarga de la limpieza de texto del DataFrame que contiene a los tweets originales, específicamente al campo "Texto del Tweet". El DataFrame resultante se almacena en un nuevo objeto llamado "df_tweets_analisis", encargado específicamente de almacenar la información previamente recolectada de los tweets con su respectivos cambios debido a la limpieza.
+
+Cabe mencionar que las limpiezas realizadas al texto en este espacio son de tres tipos: En primer lugar tenemos la limpieza de caracteres especiales, luego la de caracteres del tipo emoji, y finalemente el filtrado de todo tipo de caracter no alfabético.
+
+##### Eliminación de conectores
+En este bloque se aplica la función de sustracción de aquellas palabras que no conlleven un valor signifiacmente en un análisis léxico de texto, como lo son en este caso los conectores del idioma siendo utilizado. Para la aplicación de esta limpieza de texto se aplicó la búsqueda y borrado de aquellas palbaras encontradas en la lista de stop_words traída desde una librería con el mismo nombre.
+
+#####Toknization, POS Tagging
+Aquí se procede a la tokenización del texto ya previamente limpiado, para así facilitar el análisis de sentimientos que requiere contar con las palabras en forma de lista con elementos separados. A esta lista además se agrega una letra por cada palabra (v para verbos, a para adjetivos, n para sustantivos) con el fin de facilitar el análisis posterior de subjetividad (En este caso sin embargo no fue aplicado para esto)
+
+##### Segmentación usando Sentiwordnet
+Es recién en este punto donde encontramos la librería principal de análisis de sentimiento siendo utilizada, en este caso, Sentiwordnet. La razón por la cual se eligió esta librería es por los buenos resultados obtenidos en otros análisis donde se utilizó esta misma, posiblemente debido en gran parte a su ligera percepción superior de los textos con sentimientos negativos, si la comparamos con otras herramientas de análisis de sentimientos.
+
+Dentro de la misma función se procede a la introducción de los textos de cada tweet en formato tokenizado (Realizado en el paso anterior) de tal manera a determinar el balance sentimental que se percibe de ellos, pudiendo resultar en una de tres categorías: Positivo, Neutro, Negativo
+
+También un poco más abajo encontramos un gráfico circular hecho con la librería Matplot que expone la segmentación de los sentimiento en la totalidad de los tweets.
+
+##### Exportación del DataFrame resultante a archivo en formato .csv
+Finalmente se encuentra el bloque encargado de la exportación en un archivo del tipo .csv del DataFrame que había estado almacenando los datos de cada tweet en su etapa de análisis. Este archivo constituye además el entregable exigido del Componente #2 del trabajo práctico. El nombre de este archivo es "tweets_scrapeados_analizados.csv"
